@@ -45,3 +45,11 @@ process.on('unhandledRejection', (err) => {
     process.exit(1);
   });
 });
+
+// HEROKU specific! sending SIGTERM signal to restart app
+process.on('SIGTERM', () => {
+  console.log('😣 SIGTERM RECEIVED, Shuting down gracefully.');
+  server.close(() => {
+    console.log('💀 Process terminated!');
+  });
+});
