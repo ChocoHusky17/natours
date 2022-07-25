@@ -1,0 +1,4 @@
+node_modules
+__controllers
+__routes
+*.env
