@@ -27,10 +27,11 @@ app.set('views', path.join(__dirname, 'views'));
 
 //-- Serving Static Files (Allow access to files in specific folder via url)
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/img')));
 
 //-- Check DB connection
 const CheckDB = (req, res, next) => {
-  // Connection Status
+  // Connection Statusnp
   // 0: disconnected
   // 1: connected
   // 2: connecting
