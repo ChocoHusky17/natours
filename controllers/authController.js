@@ -23,8 +23,10 @@ const createSendToken = (user, statusCode, req, res) => {
     ),
     // secure: true, // using https
     httpOnly: true, // cannot modify by browser
-    secure: req.secure || req.headers('x-forwarded-proto') === 'https',
+    secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
   });
+
+  // console.log(req.headers['x-forwarded-proto']);
 
   // remove password from output
   user.password = undefined;
@@ -75,7 +77,7 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError('Invalid email or password!', 401));
 
   // 3) If everyting ok, send token to client
-  createSendToken(user, 200, res);
+  createSendToken(user, 200, req, res);
 });
 
 exports.logout = (req, res) => {
@@ -270,5 +272,5 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   await user.save();
 
   // 4) Log user in, send JWT
-  createSendToken(user, 200, res);
+  createSendToken(user, 200, req, res);
 });
