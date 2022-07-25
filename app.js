@@ -10,6 +10,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -26,6 +27,19 @@ app.enable('trust proxy');
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+// Implement CORS (Cross Origin Resource Sharing) - enable req from other domains to use api
+// Access-Controll-Allow-Origin *
+app.use(cors());
+// // api.natours.com , front-end natours.com
+// app.use(cors({
+//   origin:'https://www.natours.com'
+// }))
+
+// http method 'options' generate from browser sending to test if request method is allow to access
+app.options('*', cors());
+// // ex: only allow post and patch method for 'tours/:id'
+// app.options('/api/v1/tours/:id', cors());
 
 //-- Serving Static Files (Allow access to files in specific folder via url)
 app.use(express.static(path.join(__dirname, 'public')));
