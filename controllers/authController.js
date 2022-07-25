@@ -26,8 +26,6 @@ const createSendToken = (user, statusCode, req, res) => {
     secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
   });
 
-  // console.log(req.headers['x-forwarded-proto']);
-
   // remove password from output
   user.password = undefined;
 
