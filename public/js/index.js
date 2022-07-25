@@ -50,7 +50,7 @@ if (settingForm) {
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
+    // console.log(form);
 
     await updateSettings('data', form);
     document.querySelector('.btn--save--data').textContent = 'SAVE SETTINGS';
@@ -88,7 +88,7 @@ if (bookTourBtn) {
   bookTourBtn.addEventListener('click', (e) => {
     e.target.textContent = 'Processing...';
     const { tourId } = e.target.dataset;
-    console.log(tourId);
+    // console.log(tourId);
     bookTour(tourId);
   });
 }

@@ -9,7 +9,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const tour = await Tour.findById(req.params.tourId);
 
   if (!tour) return next(new AppError('Could not find tour!', 400));
-  console.log(tour);
+  // console.log(tour);
   // 2) Create checkout session
   const session = await stripe.checkout.sessions.create({
     // Options
