@@ -27,7 +27,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 //-- Serving Static Files (Allow access to files in specific folder via url)
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public/img')));
+// app.use(express.static(path.join(__dirname, 'public/img')));
 
 //-- Check DB connection
 const CheckDB = (req, res, next) => {
@@ -71,6 +71,7 @@ app.use(
         'http://localhost:3000',
         'http://127.0.0.1:3000',
         'ws://localhost:*',
+        'https://agile-journey-10975.herokuapp.com',
       ],
       baseUri: ["'self'"],
       fontSrc: ["'self'", 'https:', 'data:'],
@@ -81,6 +82,7 @@ app.use(
         'http://127.0.0.1:3000',
         'https://*.stripe.com',
         'https://*.cloudflare.com',
+        'https://agile-journey-10975.herokuapp.com',
         // 'https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js',
       ],
       frameSrc: ['self', 'https://*.stripe.com'],
@@ -91,6 +93,7 @@ app.use(
         'http://localhost:3000',
         'http://127.0.0.1:3000',
         'https://*.google.com',
+        'https://agile-journey-10975.herokuapp.com',
         'data:',
       ],
       // dataSrc: ['self'],
