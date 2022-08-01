@@ -10,7 +10,7 @@
 
 4. Implement advanced authentication features: confirm user email, keep users logged in with refresh tokens, two-factor authentication, etc.
 
-5. Implement a sign up form, similar to the login form.
+5. [DONE] Implement a sign up form, similar to the login form.
 
 6. On the tour detail page, if a user has taken a tour, allow them add a review directly on the website. Impement a form for this.
 
@@ -18,6 +18,8 @@
 
 8. Implement "like tour" functionality, with favorite tour page.
 
-9. On the user account page, implement the "My Reviews" page, where all reviews are displayed, and a user can edit them. (If you know React, this would be an amazing way to use the Natours API and train you skills!)
+9. [DONE] On the user account page, implement the "My Reviews" page, where all reviews are displayed,
 
-10. For administrators, implement all the "Manage" pages, where they can CRUD (create, read, update, delete) tours, users, reviews, and bookings
+10. On "My Reviews" user can edit them. (If you know React, this would be an amazing way to use the Natours API and train you skills!)
+
+11. For administrators, implement all the "Manage" pages, where they can CRUD (create, read, update, delete) tours, users, reviews, and bookings

@@ -1,5 +1,6 @@
 const Tour = require('../models/tourModel');
 const User = require('../models/userModel');
+const Review = require('../models/reviewModel');
 const Booking = require('../models/bookingModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
@@ -95,4 +96,21 @@ exports.updateUserData = catchAsync(async (req, res) => {
     title: 'Your account',
     user: updatedUser,
   });
+});
+
+exports.getMyReviews = catchAsync(async (req, res, next) => {
+  const reviews = await Review.find({ user: req.user.id })
+    .sort({ createdAt: 1 })
+    .populate({
+      path: 'tour', // reference field
+      select: 'name imageCover', // filter out unwanted field
+    });
+
+  res.status(200).render('review', {
+    title: 'My Reviews',
+    reviews,
+  });
+
+  // res.status(200).json({ status: 'success', reviews });
+  // console.log(reviews);
 });

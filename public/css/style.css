@@ -789,7 +789,7 @@ body {
   padding: 7rem 0;
 }
 .user-view__form-container {
-  max-width: 68rem;
+  max-width: 78rem;
   margin: 0 auto;
   padding: 0 8rem;
 }
@@ -1074,6 +1074,14 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 7rem;
+}
+
+.card-container-2 {
+  max-width: 120rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 7rem;
 }
 

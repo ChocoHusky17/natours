@@ -1,0 +1,22 @@
+extends base
+include _myReviewCard
+
+mixin navItem(link, text, icon, active)
+    li(class=`${active? 'side-nav--active':''}`)
+        a(href=`${link}`)
+            svg
+                use(xlink:href=`/img/icons.svg#icon-${icon}`)
+            | #{text}
+
+block content
+    main.main
+        .user-view
+            // NAV BAR
+            include _nav
+
+            .user-view__content
+                .user-view__form-container
+                    h2.heading-secondary.ma-bt-md= `${reviews.length} reviews`
+                    .card-container-2
+                        each review in reviews
+                            +myReviewCard(review)
