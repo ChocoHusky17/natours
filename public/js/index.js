@@ -1,6 +1,7 @@
 /* eslint-disable */
 import '@babel/polyfill';
 import { displayMap } from './map';
+import { signup } from './signup';
 import { login, logout } from './login';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
@@ -13,6 +14,7 @@ const logoutBtn = document.querySelector('.nav__el--logout');
 const settingForm = document.querySelector('.form-user-data');
 const passwordForm = document.querySelector('.form-user-password');
 const bookTourBtn = document.getElementById('book-tour');
+const signupForm = document.querySelector('.form--signup');
 
 // DELEGATION
 if (mapBox) {
@@ -20,6 +22,20 @@ if (mapBox) {
     document.getElementById('map').dataset.locations
   );
   displayMap(locations);
+}
+
+// SIGNUP
+if (signupForm) {
+  document.querySelector('.form').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+
+    signup(name, email, password, passwordConfirm);
+  });
 }
 
 // LOGIN
